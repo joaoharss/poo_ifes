@@ -1,0 +1,65 @@
+package com.mycompany.poo_ifes;
+
+/**
+ *
+ * @author 20221bsi0439
+ */
+public class Conta
+{
+    public String numero;
+    public Pessoa titular;
+    public double saldo;
+    public double limite;
+    
+    public Conta(String _numero, Pessoa _titular, double _saldo, double _limite)
+    {
+        this.numero = _numero;
+        this.saldo = _saldo;
+        this.titular = _titular;
+        this.limite = _limite;
+    }
+    
+    /*Construtor vazio*/
+    public Conta()
+    {
+        
+    }
+    
+    public void PrintaExtrato(String _numero, String _titular, double _saldo)
+    {
+        System.out.println("***EXTRATO DA CONTA ***");
+        System.out.println("Conta: " + _numero);
+        System.out.println("Titular: " + _titular);
+        System.out.println("Saldo disponível para saque: " + _saldo);    
+    }
+    
+    public void Depositar(double _saldo)
+    {
+        this.saldo = this.saldo + _saldo;
+    }
+    
+    public double Disponivel(){
+        return this.saldo + this.limite;
+    }
+    
+    public boolean Sacar(double _saldo)
+    {
+        if(_saldo <= this.Disponivel()){
+            this.saldo -= _saldo;
+            return true;
+        }
+        return false;
+    }
+    
+    public void Transferir(Conta _contaDestino, double _valorTransferencia)
+    {
+        if(this.Sacar(_valorTransferencia))
+        {
+            _contaDestino.Depositar(_valorTransferencia);
+        }        
+        else
+        {
+            System.out.println("Não foi possível fazer a transferência. Seu saldo não é suficiente.");
+        }
+    }
+}
