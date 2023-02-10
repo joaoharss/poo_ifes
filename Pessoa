@@ -1,0 +1,25 @@
+package com.mycompany.poo_ifes;
+
+/**
+ *
+ * @author 20221bsi0439
+ */
+public class Pessoa
+{
+    public String nome;
+    public int idade;
+    public char sexo;
+    public String cpf;
+    
+    public Pessoa(String _nome, int _idade, char _sexo, String _cpf)
+    {
+        this.nome = _nome;
+        this.idade = _idade;
+        this.sexo = _sexo;
+        this.cpf = _cpf;
+    }
+    
+    public Pessoa(){
+        
+    }
+}
