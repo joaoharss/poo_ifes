@@ -1,0 +1,22 @@
+package com.mycompany.poo_ifes;
+
+public class Banco2023 {
+
+    public static void main(String[] args) 
+    {
+        Pessoa p1 = new Pessoa("João", 20, 'M' ,"123456789-1");
+        Pessoa p2 = new Pessoa("Maria", 21, 'F' ,"123456789-2");
+      
+        Conta c1 = new Conta("1234-5", p1, 100.0, 250.0);
+        Conta c2 = new Conta("5432-1", p2, 200.0, 500.0);
+        
+        c1.PrintaExtrato(c1.numero, p1.nome, c1.saldo);
+        c2.PrintaExtrato(c2.numero, p2.nome, c2.saldo);
+        
+        c1.Transferir(c2, 500.0);
+        
+        c1.PrintaExtrato(c1.numero, p1.nome, c1.saldo);
+        c2.PrintaExtrato(c2.numero, p2.nome, c2.saldo);
+  
+    }
+}
